@@ -1,0 +1,13 @@
+div {
+  margin: 25px auto;
+  width: 80%;
+
+  mat-card {
+    width: 150px;
+    display: inline-block;
+  }
+
+  mat-card:nth-child(2) {
+    float: right;
+  }
+}

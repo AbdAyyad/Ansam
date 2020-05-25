@@ -1,0 +1,36 @@
+$text-color: black;
+
+table {
+  margin: 15px auto auto 10%;
+  border: 1px solid #dddddd;
+  width: 80%;
+
+  tr {
+    th {
+      width: 200px;
+      text-align: left;
+      font-size: 16pt;
+      color: $text-color;
+      background: white;
+      border: 1px solid #dddddd;
+      padding: 8px;
+    }
+
+    td {
+      padding: 8px;
+      text-align: left;
+      color: $text-color;
+      border: 1px solid #dddddd;
+      display: table-cell;
+      vertical-align: inherit;
+    }
+  }
+
+  tr:nth-child(odd) {
+    background: #dddddd;
+  }
+
+  tr:nth-child(even) {
+    background: white;
+  }
+}
