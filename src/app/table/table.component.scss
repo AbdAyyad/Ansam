@@ -23,6 +23,14 @@ table {
       border: 1px solid #dddddd;
       display: table-cell;
       vertical-align: inherit;
+
+      span {
+        margin: 0;
+
+        button {
+          float: right
+        }
+      }
     }
   }
 

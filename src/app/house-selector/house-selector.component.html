@@ -5,7 +5,7 @@
       <option>----</option>
       <option *ngFor="let house of houseNumbers">{{house}}</option>
     </select>
-    <button mat-stroked-button color="primary">Access</button>
+    <button *ngIf="showAccessButton" (click)="setEditMode()" mat-stroked-button color="primary">Access</button>
   </p>
 </div>
 <br/>

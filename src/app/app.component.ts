@@ -9,8 +9,13 @@ export class AppComponent {
   title = 'grad-project';
 
   currentHouse = 0;
+  editMode = false;
 
   houseChangeHandler(newHouse: number) {
     this.currentHouse = newHouse;
+  }
+
+  editModeHandler(mode: boolean): void {
+    this.editMode = mode;
   }
 }

@@ -1,4 +1,4 @@
 <app-header></app-header>
-<app-house-selector (currentHouse)="houseChangeHandler($event)"></app-house-selector>
-<app-table [houseNumber]="currentHouse"></app-table>
+<app-house-selector (currentHouse)="houseChangeHandler($event)" (editMode)="editModeHandler($event)"></app-house-selector>
+<app-table [houseNumber]="currentHouse" [editMode]="editMode"></app-table>
 <app-footer [house]="currentHouse"></app-footer>

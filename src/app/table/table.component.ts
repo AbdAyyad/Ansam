@@ -10,6 +10,7 @@ import {StudentsService} from '../services/students.service';
 export class TableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'studentName', 'status'];
   @Input() houseNumber: number;
+  @Input() editMode: boolean;
   data: StudentModel[];
 
   constructor(private studentsService: StudentsService) {
@@ -17,6 +18,10 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentsService.getAll(this.houseNumber).subscribe(result => this.data = result);
+  }
+
+  changeStudentStatus(student: StudentModel) {
+    student.status = !student.status;
   }
 
 }

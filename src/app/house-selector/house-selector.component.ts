@@ -9,15 +9,20 @@ import {HousesService} from '../services/houses.service';
 export class HouseSelectorComponent implements OnInit {
 
   @Output() currentHouse: EventEmitter<number>;
+  @Output() editMode: EventEmitter<boolean>;
+  showAccessButton: boolean;
   houseNumbers: number[];
 
   constructor(private houseService: HousesService) {
     this.currentHouse = new EventEmitter<number>();
+    this.editMode = new EventEmitter<boolean>();
+    this.showAccessButton = true;
   }
 
   ngOnInit(): void {
     this.houseService.getAll().subscribe(result => this.houseNumbers = [...result]);
     this.currentHouse.emit(0);
+    this.editMode.emit(false);
   }
 
   changeHouse(value: string) {
@@ -26,5 +31,10 @@ export class HouseSelectorComponent implements OnInit {
     } else {
       this.currentHouse.emit(+value);
     }
+  }
+
+  setEditMode(): void {
+    this.editMode.emit(true);
+    this.showAccessButton = false;
   }
 }
