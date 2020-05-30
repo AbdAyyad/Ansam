@@ -20,7 +20,8 @@ export class HouseSelectorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.houseService.getAll().subscribe(result => this.houseNumbers = [...result]);
+    // @ts-ignore
+    this.houseService.getAll().subscribe(result => this.houseNumbers = [...new Set(result)].sort((a, b) => a - b));
     this.currentHouse.emit(0);
     this.editMode.emit(false);
   }

@@ -1,18 +1,25 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {StudentModel} from '../model/student.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HousesService {
 
-  constructor() {
+  constructor(private angularFireDatabase: AngularFireDatabase) {
   }
 
-  getAll(): Observable<number[]> {
-    // TODO: change after meeting
-    return of([
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-    ]);
+  getAll(): Observable<any> {
+    return this.angularFireDatabase.list<StudentModel>('Member')
+      .valueChanges()
+      .pipe(
+        map(
+          arr => arr
+            .map(entry => entry.hNum)
+        )
+      );
   }
 }

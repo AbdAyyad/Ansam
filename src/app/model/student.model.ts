@@ -1,5 +1,7 @@
 export interface StudentModel {
-  studentName: string;
-  status: boolean;
-  id: number;
+  hNum: number;
+  name: string;
+  phone: number;
+  userid: number;
+  status?: boolean;
 }
